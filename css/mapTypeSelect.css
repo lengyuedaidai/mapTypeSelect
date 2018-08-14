@@ -1,0 +1,8 @@
+	.mapType{cursor:pointer;-webkit-transition-property:width,background-color;transition-property:width,background-color;-webkit-transition-duration:.4s;transition-duration:.4s;background-color:rgba(255,255,255,0)}
+	.mapType .mapTypeCard{position:absolute;border-radius:2px;box-sizing:border-box;border:1px solid transparent;border:1px solid rgba(153,153,153,.42);-webkit-transition-property:right,background-image;transition-property:right,background-image;-webkit-transition-duration:.4s;transition-duration:.4s}
+	.mapType .mapTypeCard span{position:absolute;bottom:0;right:0;display:inline-block;padding:3px 3px 2px 4px;font-size:12px;height:12px;line-height:12px;color:#FFF;border-top-left-radius:2px}
+	.mapType .mapTypeCard.active span,.mapType .mapTypeCard:hover span{background-color:#3385FF}
+	/*.mapType .mapTypeCard:hover{border:1px solid #3385FF}*/
+	.mapType .mapTypeCard{
+		border: 1px solid #3385FF
+	}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>mapTypeSelect</title>
+	<link href="css/mapTypeSelect.css" type="text/css" rel="stylesheet" />
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/mapTypeSelect.js"></script>
+	<style type="text/css">
+		body,
+		html,
+		#bdmap {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			margin: 0;
+			font-family: "微软雅黑";
+		}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=E4805d16520de693a3fe707cdc962045&services=&t=20180629105709"></script>
+</head>
+
+<body>
+	<div id="bdmap">
+	</div>
+	<div id="test" style="position: absolute;bottom: 20px;right: 10px;">
+	</div>
+</body>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("bdmap"); // 创建Map实例
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11); // 初始化地图,设置中心点坐标和地图级别
+	map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+	$("#test").mapTypeSelect({
+		onSelect:function(data){
+			map.setMapType(window[data.item.mapType])
+		},
+		data: [ //渲染数据
+			{
+				image: "img/DLG.png",
+				name: "地图",
+				mapType: "BMAP_NORMAL_MAP",
+				isDefault: true
+			}, //地图类型
+			{
+				image: "img/DOM.png",
+				name: "影像",
+				mapType: "BMAP_HYBRID_MAP",
+				isDefault: false
+			}, //影像类型
+			{
+				image: "img/DEM.png",
+				name: "高程",
+				mapType: "BMAP_PERSPECTIVE_MAP",
+				isDefault: false
+			} //高程类型
+		]
+	});
+</script>
+
+</html>
